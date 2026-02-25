@@ -1,24 +1,30 @@
-import { Stack } from 'expo-router';
+import useTheme from "@/hooks/useTheme";
+import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from 'expo-router';
 
-<<<<<<< HEAD
-export default function RootLayout() {
-  return <Stack screenOptions={{ headerShown: false }} />;
-}
-=======
-const TabsLayout = () => {
-    return (
+
+export default function TabLayout() {
+  return (
     <Tabs>
-        <Tabs.Screen name='index' options={
-            {   NPMtitle: "Home",
-                tabBarIcon: ({ color }) => (
-                    <Ionicons name='home' cloor={color} />
-                )
-            }} />
-        <Tabs.Screen name='catalogo' options={{ title: "Shop" }} />
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="explore"
+        options={{
+          title: 'Cursos',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="book" size={size} color={color} />
+          ),
+        }}
+      />
     </Tabs>
-    )
+  );
 }
-
-
-export default TabsLayout
->>>>>>> c334cf434162b7ee64e793267139a182425a3d2f
