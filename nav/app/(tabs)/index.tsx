@@ -1,13 +1,10 @@
-import{Link} from "expo-router"
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text, StyleSheet } from 'react-native';
 
-export default function Index() {
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <View style={styles.main}>
-        <Text>HOME</Text>
-        <Link href={"/catalogo"}>SHOP</Link>
-      </View>
+      <Text style={styles.titulo}>Plataforma de Cursos</Text>
+      <Text>Bem-vindo à nossa plataforma!</Text>
     </View>
   );
 }
@@ -15,16 +12,12 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  }, 
-  main:{
-    width:'90%',
-    shadowColor: "#000",
-    shadowOffset: {width: 0,  height: 2},
-    shadowOpacity: 0.1,
-    borderRadius: 15, 
-    padding: 20, 
-    backgroundColor: "#fff"
-  }
-})
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  titulo: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+});
