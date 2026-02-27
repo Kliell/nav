@@ -1,39 +1,34 @@
-import { Tabs } from 'expo-router'
-import { Ionicons } from "@expo/vector-icons"
+import useTheme from "@/hooks/useTheme";
+import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from 'expo-router';
 
 const TabsLayout = () => {
-  return (
-    <Tabs 
-    screenOptions={{
-            tabBarActiveTintColor: "red",
-            tabBarInactiveTintColor: "blue",
+    const { colors } = useTheme()
+    return (
+        <Tabs screenOptions={{
+            tabBarActiveTintColor : colors.danger,
+            tabBarInactiveTintColor : colors.bgPrimary,
             tabBarStyle: {
-                paddingBottom: 30,
+                paddingBottom : 30,
                 paddingTop: 10,
-                backgroundColor: '#e3e0df'
-            }
+                backgroundColor : colors.bgSecondary
+            },
+            headerShown: false
         }}>
-
-        <Tabs.Screen name='index' options={
-            {title: "Home", 
-                tabBarIcon : ({color, size}) => (
+            <Tabs.Screen name='index' options={
+                { title: "Home",
+                  tabBarIcon : ({color, size}) => (
                     <Ionicons name='home' color={color} size={size}/>
-                )
-            }}/>
-        <Tabs.Screen name='catalogo' options={
-            {title: "Shop", 
-                tabBarIcon : ({color, size}) => (
+                  ) 
+            }} />
+           <Tabs.Screen name='catalogo' options={
+                { title: "Shop",
+                  tabBarIcon : ({color, size}) => (
                     <Ionicons name='cart' color={color} size={size}/>
-                )
-            }}/>
-        <Tabs.Screen name='cursos' options={
-            {title: "Cursos", 
-                tabBarIcon : ({color, size}) => (
-                    <Ionicons name='briefcase-outline' color={color} size={size}/>
-                )
-            }}/>
-    </Tabs>
-  )
+                  ) 
+            }} />
+        </Tabs>
+    )
 }
 
 export default TabsLayout

@@ -1,41 +1,36 @@
-import { StyleSheet, Text, View } from "react-native";
+import useTheme from "@/hooks/useTheme";
 import { Link } from "expo-router";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
+  const { toggleDarkMode } = useTheme();
   return (
     <View style={styles.container}>
-      <Text>a</Text>
       <View style={styles.main}>
-        
-        <Text style={styles.nav}>Home</Text>
-        <Link href={"./catalogo"} style={styles.nav}>Shop</Link>
-        <Link href={"./cursos"} style={styles.nav}>Cursos</Link>
+        <Text style={styles.texto}>HOME</Text>
+        <Link href={"../catalogo"}>SHOP</Link>
+        <TouchableOpacity onPress={toggleDarkMode}>MUDA TEMA</TouchableOpacity>
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-  }, 
-  main: {
-    width: '50%',
-    height: '50%',
-    shadowColor: '#000',
+    alignItems: "center"
+  },
+  main : {
+    width: '90%' ,
+    shadowColor : "#000" ,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     borderRadius: 15,
-    padding: 110,
-    
-    backgroundColor: '#ffffff'
+    padding: 20,
+    backgroundColor : "#fff",
   },
-  nav: {
-    textAlign: "center",
-    padding: 10,
-    fontSize: 30
+  texto : {
+    fontSize : 22
   }
-
 })
