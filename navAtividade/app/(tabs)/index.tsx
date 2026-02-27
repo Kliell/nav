@@ -1,4 +1,4 @@
-import useTheme from "@/hooks/useTheme";
+import {useTheme} from "@/hooks/useTheme";
 import { Link } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
